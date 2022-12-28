@@ -45,11 +45,12 @@ function App() {
 
     const handleUpdate = () => {
         if (updatedJob === "") {
-            setError({ updateError: "*Mời bạn nhập..." });
+            setShow(!show)
         } else {
             // get index of modifying job and replace by new job
             const modifingJobIndex = jobs.findIndex((x) => x === modifiJob);
             jobs.splice(modifingJobIndex, 1, updatedJob);
+           
             setShow(!show);
             setJobs(() => {
                 const jsonJobs = JSON.stringify(jobs);
